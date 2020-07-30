@@ -1,0 +1,54 @@
+.profile-container {
+    width: 100%;
+    max-width: 1180px;
+
+    padding: 0 30px;
+    margin: 32px auto;
+}
+
+.profile-container menu {
+    margin-right: auto;
+}
+
+.profile-container header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-container header .search {
+    margin-left: auto;
+    margin-top: 0;
+} 
+
+.profile-container header .margin-left {
+    margin-left: 10px;
+}
+
+.profile-container p {
+    font-size: 20px;
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.profile-container .content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-container .content table {
+    border-collapse: collapse;
+    width: 80%;
+
+    margin-left: 30px;
+}
+
+.profile-container .content th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .profile-container .content tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
