@@ -4,6 +4,9 @@
  
 O desafio proposto foi a construção de uma aplicação utilizando os componentes do UI PrimeReact (https://www.primefaces.org/primereact/). 
  
+ 
+ Para rodar a aplicação:
+ 
  ### - Backend
 
 ```sh
