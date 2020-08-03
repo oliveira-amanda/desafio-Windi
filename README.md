@@ -1,5 +1,6 @@
-## Desafio desenvolvido para o processo seletivo da um empresa em Blumenau-SC. 
-### 🗒  Sobre
+## 🗒  Sobre
+### Desafio desenvolvido para o processo seletivo da um empresa de Blumenau-SC. 
+
  
 O desafio proposto foi a construção de uma aplicação utilizando os componentes do UI PrimeReact (https://www.primefaces.org/primereact/). 
  
