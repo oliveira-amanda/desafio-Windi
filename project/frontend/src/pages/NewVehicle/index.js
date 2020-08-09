@@ -91,6 +91,8 @@ export default function NewVehicle() {
                         options={optionals}
                         value={optional}
                         onChange={e => setOptional(e.target.value)}
+                        filter={true}
+                        filterPlaceholder="Pesquisar" 
                     />
 
                     <Button label="Cadastrar" className="margin-top p-button-primary" />

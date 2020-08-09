@@ -10,6 +10,8 @@ import './styles.css';
 
 export default function Profile() {
     const [vehicles, setVehicles] = useState([]);
+    const [search, setSearch] = useState('');
+    const [filteredVehicles, setFilteredVehicles] = useState([])
 
     const history = useHistory();
 
@@ -25,6 +27,14 @@ export default function Profile() {
             setVehicles(response.data);
         })
     }, [userId]);
+
+    useEffect(() => {
+        setFilteredVehicles(
+            vehicles.filter((vehicle) => {
+                return vehicle.vehiclePlate.toLowerCase().includes(search.toLowerCase());
+            }),
+        );
+    }, [search, vehicles])
 
     async function handleDeleteVehicle(id) {
         try {
@@ -51,21 +61,26 @@ export default function Profile() {
         {
             label: 'Opções',
             items: [{label: 'Cadastrar veículo', icon: 'pi pi-fw pi-plus',command:()=>{ window.location.pathname ="/vehicles/new"; }},
-                    {label: 'Pesquisar veículo', icon: 'pi pi-fw pi-search', command:()=>{ window.location.pathname ="/profile";}}]
+            ]
         },
     ]
-    
+
     return(
         <div className="profile-container">
             <header>
                 <p>Bem vindo(a), {userName}</p>
 
                 <form className="search">
-                    <InputText 
-                        placeholder="Insira a placa"
-                    />
-                    <Button onClick={handleLogout}  label="Sair" className="margin-left  p-button-primary"/>
+                    <div className="search-input">
+                        <InputText 
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                            placeholder="Digite a placa"
+                        />
+                        <i className="pi pi-search"></i>
+                    </div>
                 </form>
+                <Button onClick={handleLogout}  label="Sair" className="margin-left  p-button-primary"/>
 
             </header>
             <p>Veículos cadastrados</p>
@@ -81,7 +96,7 @@ export default function Profile() {
                         </tr>
                     </thead>
                     <tbody>
-                        {vehicles.map(vehicle => {
+                        {filteredVehicles.map(vehicle => {
                             const { id, vehiclePlate, brand, modelYear, mileage} = vehicle;
                             return (
                                 <tr key={id}>
